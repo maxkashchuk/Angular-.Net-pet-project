@@ -16,26 +16,42 @@
     <div style="width: 100%; height: 35%; position: fixed; background: #115466; bottom: 0;"></div>
 </div>
 <div style="
-margin-left: 50%; 
+margin-left: 45%; 
 position: absolute;
-margin-top: 3%;
 width: 45%;
 height: 85%;
-border: solid rgba(255, 255, 255, 0.8);
-border-width: 0 3px 0 3px;
-border-radius: 200px;
 text-align: center;
+display: inline-block;
 ">
     <div class="row">
-        <span>
-        <input [(ngModel)]="name" class="basic-slide" id="name" type="text" placeholder="Your name" /><label for="name">Name</label>
-        </span>
-        <span>
-        <input [(ngModel)]="email" class="basic-slide" id="email" type="text" placeholder="Your email" /><label for="email">Email</label>
-        </span>
-        <mat-card class="demo-inline-calendar-card">
-            <div style="color: #669DB3FF; pointer-events: none;">Your date</div>
-            <mat-calendar [maxDate]="currentDate" [minDate]="minDate" [(selected)]="birth"></mat-calendar>
-        </mat-card>
+        <div class="column">
+            <span>
+                <input [(ngModel)]="name" class="basic-slide" id="name" type="text" placeholder="Your name" /><label for="name">Name</label>
+            </span>
+            <span>
+                <input [(ngModel)]="surname" class="basic-slide" id="surname" type="text" placeholder="Your surname" /><label for="surname">Surname</label>
+            </span>
+            <span>
+                <input [(ngModel)]="email" class="basic-slide" id="email" type="email" placeholder="Your email" /><label for="email">Email</label>
+            </span>
+            <span>
+                <div class="example-1">
+                    <div class="form-group">
+                      <label class="label">
+                        <i class="material-icons">image</i>
+                        <span class="title">Choose image</span>
+                        <input type="file">
+                      </label>
+                    </div>
+                  </div>
+            </span>
+        </div>
+        <div class="column">
+            <mat-card class="demo-inline-calendar-card">
+                <div style="color: #669DB3FF; pointer-events: none;">Your date of birth</div>
+                <mat-calendar [maxDate]="currentDate" [minDate]="minDate" [(selected)]="birth"></mat-calendar>
+            </mat-card>
+            <button class="sbmButton" (click)="btnClick()">SERVICE</button>
+        </div>
     </div>
 </div>
