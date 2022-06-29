@@ -27,24 +27,55 @@ namespace angular_pet_project.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState.ErrorCount);
             }
-            User u = new User { Name = user.Name, Email = user.Email, BirthDate = user.BirthDate };
+            User u = new User { ActualName = user.ActualName, Nickname = user.Nickname, Email = user.Email, BirthDate = user.BirthDate, Image = user.Image};
             await DBContext.AddAsync(u);
             await DBContext.SaveChangesAsync();
             return Ok();
         }
 
-        [Route("adduser")]
-        [HttpDelete]
-        public async Task<ActionResult> DelUser(UserRegister user)
+        [Route("readuser")]
+        [HttpGet("{id:int}")]
+        public ActionResult GetUser(string id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.ErrorCount);
             }
-            User u = new User { Name = user.Name, Email = user.Email, BirthDate = user.BirthDate };
-            await DBContext.AddAsync(u);
+            User user = DBContext.User.First(x => x.Id == id);
+            return Ok(user);
+        }
+
+        [Route("deluser")]
+        [HttpDelete]
+        public async Task<ActionResult> DelUser(string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.ErrorCount);
+            }
+            User user = DBContext.User.First(x => x.Id == id);
+            DBContext.Remove(user);
+            await DBContext.SaveChangesAsync();
+            return Ok();
+        }
+
+        [Route("upuser")]
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(string id, UserUpdate user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.ErrorCount);
+            }
+            User u = DBContext.User.First(x => x.Id == id);
+            u.ActualName = (user.ActualName != null) ? user.ActualName : u.ActualName;
+            u.Nickname = (user.Nickname != null) ? user.Nickname : u.Nickname;
+            u.Email = (user.Email != null) ? user.Email : u.Email;
+            u.BirthDate = (user.BirthDate != null) ? user.BirthDate : u.BirthDate;
+            u.Image = (user.Image != null) ? user.Image : u.Image;
+            DBContext.Update(user);
             await DBContext.SaveChangesAsync();
             return Ok();
         }

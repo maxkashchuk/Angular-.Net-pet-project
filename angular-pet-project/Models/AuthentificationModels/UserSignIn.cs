@@ -9,18 +9,12 @@ using System.Threading.Tasks;
 namespace angular_pet_project.Models.AuthentificationModels
 {
     [NotMapped]
-    public class UserRegister
+    public class UserSignIn
     {
-        [Required]
-        public string ActualName { get; set; }
         [Required]
         public string Nickname { get; set; }
         [Required]
         [CheckEmail]
         public string Email { get; set; }
-        [Required]
-        [CheckDate]
-        public DateTime? BirthDate { get; set; }
-        public byte[] Image { get; set; }
     }
 }
