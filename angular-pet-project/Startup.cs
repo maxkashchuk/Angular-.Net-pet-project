@@ -27,6 +27,11 @@ namespace angular_pet_project
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<ApplicationContext>(options => 
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

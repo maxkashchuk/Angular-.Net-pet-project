@@ -7,9 +7,9 @@ namespace angular_pet_project
 {
     public class DBInitializer
     {
-        async public static void Initialize(ApplicationContext context)
+        public static void Initialize(ApplicationContext context)
         {
-            await context.Database.EnsureCreatedAsync();
+            context.Database.EnsureCreated();
         }
     }
 }

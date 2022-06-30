@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace angular_pet_project
 {
-    public class ApplicationContext : IdentityDbContext
+    public class ApplicationContext : IdentityDbContext<User>
     {
         public DbSet<User> User { get; set; }
 
