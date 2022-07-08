@@ -40,23 +40,24 @@ namespace angular_pet_project
             });
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationContext>()
-                .AddDefaultTokenProviders();
+                 .AddEntityFrameworkStores<ApplicationContext>()
+                 .AddDefaultTokenProviders();
 
-            services.AddIdentityServer()
-                .AddAspNetIdentity<User>()
-                .AddInMemoryApiResources(Config.ApiResources)
-                .AddInMemoryIdentityResources(Config.IdentityResources)
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients)
-                .AddDeveloperSigningCredential();
+            services.AddIdentityServer().AddDeveloperSigningCredential()
+              // this adds the operational data from DB (codes, tokens, consents)
+              .AddOperationalStore(options =>
+              {
+                  options.ConfigureDbContext = builder => builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                  // this enables automatic token cleanup. this is optional.
+                  options.EnableTokenCleanup = true;
+                  options.TokenCleanupInterval = 30; // interval in seconds
+              })
+              .AddInMemoryIdentityResources(Config.IdentityResources)
+              .AddInMemoryApiResources(Config.ApiResources)
+              .AddInMemoryClients(Config.Clients)
+              .AddAspNetIdentity<User>();
 
-            services.ConfigureApplicationCookie(config =>
-            {
-                config.Cookie.Name = "Notes.Identity.Cookie";
-                config.LoginPath = "/Auth/Login";
-                config.LogoutPath = "/Auth/Logout";
-            });
+            services.AddCors();
 
         }
 

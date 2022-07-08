@@ -16,7 +16,7 @@ namespace angular_pet_project
     {
         public DbSet<User> User { get; set; }
 
-        public ApplicationContext(DbContextOptions options) : base(options) { }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

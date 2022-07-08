@@ -37,22 +37,22 @@ namespace angular_pet_project
             {
                 new Client
                 {
-                    ClientId = "notes-web-api",
-                    ClientName = "NotesWeb",
+                    ClientId = "angular_spa",
+                    ClientName = "Angular SPA",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequireClientSecret = false,
                     RequirePkce = true,
                     RedirectUris =
                     {
-                        "http://.../signin-odic"
+                        "https://localhost:44316/auth-callback"
                     },
                     AllowedCorsOrigins =
                     {
-                        "http://..."
+                        "https://localhost:44316/"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http:/.../signout-odic"
+                        "https://localhost:44316/"
                     },
                     AllowedScopes =
                     {
@@ -60,7 +60,8 @@ namespace angular_pet_project
                         IdentityServerConstants.StandardScopes.Profile,
                         "NotesWebAPI"
                     },
-                    AllowAccessTokensViaBrowser = true
+                    AllowAccessTokensViaBrowser = true,
+                    AccessTokenLifetime = 3600
                 }
             };
     }

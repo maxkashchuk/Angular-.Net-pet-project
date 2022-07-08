@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace angular_pet_project.Migrations
 {
-    public partial class initial_1 : Migration
+    public partial class intital_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

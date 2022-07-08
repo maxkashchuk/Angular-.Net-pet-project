@@ -21,7 +21,6 @@ namespace angular_pet_project
                 try
                 {
                     var context = serviceProvider.GetRequiredService<ApplicationContext>();
-                    DBInitializer.Initialize(context);
                 }
                 catch(Exception exception)
                 {

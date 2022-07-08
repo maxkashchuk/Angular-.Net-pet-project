@@ -12,14 +12,16 @@ import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { RegisterComponent } from './register/register.component';
 import { FeatureService } from './app.feature.service';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    RegisterComponent,
     SignInComponent,
   ],
   imports: [
@@ -28,7 +30,8 @@ import { FeatureService } from './app.feature.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'SignIn', component: SignInComponent, pathMatch: 'full' }
+      { path: 'register', component: RegisterComponent, pathMatch: 'full' },
+      { path: 'sign-in', component: SignInComponent, pathMatch: 'full' }
     ]),
     BrowserAnimationsModule,
     MatIconModule,

@@ -10,8 +10,8 @@ using angular_pet_project;
 namespace angular_pet_project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220630170742_initial_1")]
-    partial class initial_1
+    [Migration("20220703140247_intital_1")]
+    partial class intital_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
