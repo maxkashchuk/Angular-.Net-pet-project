@@ -25,7 +25,7 @@ namespace angular_pet_project
                 catch(Exception exception)
                 {
                     var logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(exception, "Error occured while initia;ized data base");
+                    logger.LogError(exception, "Error occured while initialized data base");
                 }
             }
             host.Run();

@@ -1,5 +1,6 @@
 ﻿using angular_pet_project.Models;
 using angular_pet_project.Models.AuthentificationModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace angular_pet_project.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FeatureService } from '../app.feature.service';
 import { RegisterService } from './register.service';
-import { User } from '../models/usermodel'
+import { User } from '../models/user-model-register';
 
 @Component({
   selector: 'app-counter-component',

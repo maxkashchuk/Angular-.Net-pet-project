@@ -1,5 +1,7 @@
+using angular_pet_project.Configuration;
 using angular_pet_project.Models;
 using IdentityServer4.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,7 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace angular_pet_project
 {
@@ -57,6 +62,29 @@ namespace angular_pet_project
               .AddInMemoryClients(Config.Clients)
               .AddAspNetIdentity<User>();
 
+            var jwtSettings = Configuration.GetSection("JwtSettings");
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["validIssuer"],
+                    ValidAudience = jwtSettings["validAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                        .GetBytes(jwtSettings.GetSection("securityKey").Value))
+                };
+            });
+
+            services.AddScoped<JwtHandler>();
+
             services.AddCors();
 
         }
@@ -84,6 +112,11 @@ namespace angular_pet_project
             }
 
             app.UseRouting();
+
+            app.UseCors(options => options
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
 
             app.UseAuthentication();
 

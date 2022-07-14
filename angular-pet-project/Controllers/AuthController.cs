@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace angular_pet_project.Controllers
@@ -16,18 +18,18 @@ namespace angular_pet_project.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly JwtHandler _jwtHandler;
         private readonly ApplicationContext _applicationContext;
         
-        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext applicationContext)
+        public AuthController(UserManager<User> userManager, JwtHandler jwtHandler, ApplicationContext applicationContext)
         {
-            _signInManager = signInManager;
+            _jwtHandler = jwtHandler;
             _userManager = userManager;
             _applicationContext = applicationContext;
         }
 
         [Route("login")]
-        [HttpGet]
+        [HttpPost]
         public ActionResult LoginUser(UserSignIn user)
         {
             if (!ModelState.IsValid)
@@ -35,11 +37,15 @@ namespace angular_pet_project.Controllers
                 return BadRequest(ModelState.ErrorCount);
             }
 
-            User u = _applicationContext.Users.Where(el => el.Nickname == user.Nickname && el.Email == user.Email).Single();
+            User u = _applicationContext.User.FirstOrDefault(el => el.Nickname == user.Nickname && el.Email == user.Email);
             
             if(u != null)
             {
-                //await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.Name));
+                var signingCredentials = _jwtHandler.GetSigningCredentials();
+                var claims = _jwtHandler.GetClaims(u);
+                var tokenOptions = _jwtHandler.GenerateTokenOptions(signingCredentials, claims);
+                var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+                return Ok(token);
             }
 
             return BadRequest();
@@ -71,14 +77,21 @@ namespace angular_pet_project.Controllers
                 return BadRequest(result.Errors);
             }
 
-            await _userManager.AddClaimAsync(u, new System.Security.Claims.Claim("ActualName", user.ActualName));
-            await _userManager.AddClaimAsync(u, new System.Security.Claims.Claim("Nickname", user.Nickname));
-            await _userManager.AddClaimAsync(u, new System.Security.Claims.Claim("Email", user.Email));
-            await _userManager.AddClaimAsync(u, new System.Security.Claims.Claim("BirthDate", user.BirthDate.ToString()));
-            try { await _userManager.AddClaimAsync(u, new System.Security.Claims.Claim("Image", user.Image.ToString())); }
-            catch (Exception) { }
+            return Ok(StatusCode(200));
+        }
 
-            return Ok(u);
+        [Route("tokenvalid")]
+        [HttpPost]
+        public async Task<ActionResult> ValidateToken(string token)
+        {
+            var res = await ValidateToken(token);
+
+            if(res != null)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
     }
 }

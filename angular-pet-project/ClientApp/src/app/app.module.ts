@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { FeatureService } from './app.feature.service';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthService } from './app.authentication.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     MatDatepickerModule,
     MatCardModule
   ],
-  providers: [FeatureService],
+  providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
