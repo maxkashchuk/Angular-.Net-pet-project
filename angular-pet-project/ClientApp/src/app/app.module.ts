@@ -16,6 +16,10 @@ import { RegisterComponent } from './register/register.component';
 import { FeatureService } from './app.feature.service';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './app.authentication.service';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgRatingBarModule } from 'ng-rating-bar';
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { AuthService } from './app.authentication.service';
     HomeComponent,
     RegisterComponent,
     SignInComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +37,8 @@ import { AuthService } from './app.authentication.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent, pathMatch: 'full' },
-      { path: 'sign-in', component: SignInComponent, pathMatch: 'full' }
+      { path: 'sign-in', component: SignInComponent, pathMatch: 'full' },
+      { path: 'user-profile', component: UserProfileComponent, pathMatch: 'full' }
     ]),
     BrowserAnimationsModule,
     MatIconModule,
@@ -41,7 +47,10 @@ import { AuthService } from './app.authentication.service';
     MatToolbarModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatCardModule
+    MatCardModule,
+    ScrollingModule,
+    NgRatingBarModule,
+    NgbProgressbarModule,
   ],
   providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]
