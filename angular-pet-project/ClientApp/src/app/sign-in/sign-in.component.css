@@ -9,19 +9,10 @@
     margin-top: 3%;
 }
 
-.column {
-    float: left;
-    width: 50%;
-}
-
-.column mat-card {
-    margin-left: 100%;
-}
-
 .row span {
     position: relative;
     display: inline-block;
-    margin: 20px 50px;
+    margin: 30px 10px;
     color: white;
 }
 
