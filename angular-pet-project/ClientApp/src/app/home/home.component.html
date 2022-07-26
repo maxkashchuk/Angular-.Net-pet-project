@@ -1,14 +1,46 @@
-<section class="container">
-    <div class="card">
-        <div class="card-image card-context">
-
+<section style="width: 100%; overflow-y: scroll; height: 730px; width: 99%;" class="row">
+        <ng-container class="col-lg-3 row" *ngFor="let item of dataResponse.data; let i = index">
+            <div style="margin-left: 11%; margin-top: 2%;" class="card">
+                <div [ngStyle]="{'background-image': 'url(\'' + this.getImage() + '\')'}" class="card-image card-context"></div>
+                <h2 style="align-self: center;" [ngStyle]="{'margin-left': checkString(item.name)}">
+                    {{item.name}}
+                </h2>
+                <ng-rating-bar 
+                style="align-self: center;"
+                *ngIf="checkFunc(item) === true"
+                [(value)]="item.rating" 
+                [ratingCount]="5" 
+                ></ng-rating-bar>
+                <p style="font-weight: 350; font-size: 18px; align-self: center;" *ngIf="checkFunc(item) === false">
+                    Not rated yet
+                </p>
+                <p style="font-weight: 350; font-size: 24px; align-self: center;">Price level</p>
+                <ngb-progressbar
+                *ngIf="checkPrice(item.price_level) !== 0"
+                style="margin: 2%;"
+                type="{{pbarColor(item.price_level)}}"
+                [max]="100"
+                [value]="checkPrice(item.price_level)"
+                height="15px"
+                ></ngb-progressbar>
+                <p style="font-weight: 350; font-size: 18px; align-self: center;" *ngIf="checkPrice(item.price_level) === 0">
+                    Not researched yet
+                </p>
+                <button class="btn">More</button>
+            </div>
+        </ng-container>
+        
+        <div class="flex">
+            <ul>
+                <a (click)="previous()"><li style="font-weight: bold; font-size: 28px"><</li></a>
+                <li class="linkDefault">1</li>
+                <p>...</p>
+                <li class="linkDefault">4</li>
+                <li class="linkDefault">5</li>
+                <li class="linkDefault">6</li>
+                <p>...</p>
+                <li class="linkDefault">9</li>
+                <a (click)="next()"><li style="font-weight: bold; font-size: 28px">></li></a>
+            </ul>
         </div>
-        <h2>
-            Title
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas quam non tellus mollis.
-        </p>
-        <button class="btn">Lorem ipsum</button>
-    </div>
 </section>

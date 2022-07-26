@@ -1,18 +1,19 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { FeatureService } from '../app.feature.service';
+import { SignInService } from './sign-in.service';
+import { User } from '../models/user-model-sign-in';
 
 @Component({
-  selector: 'app-counter-component',
+  selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
 
-  constructor(public featureService:FeatureService) 
-  {
+  constructor(public featureService:FeatureService, private router: Router, private signInService: SignInService) 
+  { 
     featureService.hide();
-
-    this.minDate.setFullYear(this.minDate.getFullYear() - 100)
   }
 
   ngOnDestroy()
@@ -20,14 +21,21 @@ export class SignInComponent {
     this.featureService.show();
   }
 
-  currentDate:Date = new Date();
+  btnClick()
+  {
+    this.u.NickName = this.NickName;
+    this.u.Email = this.Email;
+    this.signInService.loginUser(this.u);
+  }
 
-  minDate:Date = new Date();
+  btnNavigate= function () {
+    this.router.navigateByUrl('/register');
+  }
 
-  name;
+  u = { } as User;
 
-  email;
+  public NickName: string;
 
-  birth: Date | null;
+  public Email: string;
 
 }

@@ -1,24 +1,12 @@
 .background1 {
-    background: url(../../images/background3.gif);
+    background: url(../../images/background2.gif);
     background-size: 100% 100%;
-    width: 50%;
-    height: 70%;
+    width: 35%;
+    height: 45%;
     position: absolute;
-}
-
-.demo-inline-calendar-card {
-    width: 300px;
-    background-color: #efefef;
-}
-
-.row {
-    max-width: 325px;
-    margin: 0 auto;
-    padding: 30px 30px;
-    flex-direction: column;
-    position: relative;
+    margin-left: 5%;
     z-index: 1;
-    text-align: center;
+    margin-top: 3%;
 }
 
 .row span {
@@ -30,7 +18,7 @@
 
 .basic-slide {
     display: inline-block;
-    width: 280px;
+    width: 350px;
     padding: 10px 0 10px 15px;
     font-family: "Open Sans", sans;
     font-weight: 400;
@@ -39,7 +27,6 @@
     border: 0;
     border-radius: 3px;
     outline: 0;
-    text-indent: 70px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -47,6 +34,18 @@
     color: #efefef;
     text-indent: 0;
     font-weight: 300;
+}
+
+.bs1 {
+    text-indent: 120px;
+}
+
+.bs2 {
+    text-indent: 100px;
+}
+
+.bs3 {
+    text-indent: 70px;
 }
 
 .basic-slide + label {
@@ -78,21 +77,121 @@
     transform: translateX(-100%);
 }
 
-::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected){
+.example-1 input[type=file] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.example-1 .label { 
+    width: 265px;
+    border: 2px dashed grey;
+    border-radius: 5px;
+    display: block;
+    padding: 1.2em;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.example-1 .label i {
+    display: block; 
+    font-size: 42px;
+    padding-bottom: 16px;
+}
+
+.example-1 .label i,.example-1 .label .title {
+    color: grey;
+    transition: 200ms color;
+}
+
+.example-1 .label:hover {
+    border: 2px solid #000;
+}
+
+.example-1 .label:hover i, .example-1 .label:hover .title {
+    color: #000;
+}
+
+.sbmButton {
+    position: absolute;
+    margin-left: 16%;
+    margin-top: 23%;
+    width: 20%;
+    height: 25%;
     color: #669DB3FF;
-    text-shadow: 0 1px 0 #aaa;
     border-color: #669DB3FF;
-  }
+}
 
-::ng-deep .mat-calendar-body-label {
-      display: none;
-  }
+.sbmButtonVer2 {
+    position: absolute;
+    z-index: 3;
+    margin-left: 70%;
+    margin-top: 35%;
+    width: 15%;
+    height: 8%;
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+}
 
-  ::ng-deep .mat-calendar-header {
-      color: #669DB3FF;
-  }
-  
-  ::ng-deep :is(.mat-calendar-body-selected){
-    background-color: #115466;
-    color: #fff;
-  }
+.titleMain {
+    position: absolute;
+    z-index: 3;
+    margin-left: 65%;
+    margin-top: 20%;
+    font-weight: 250;
+    font-size: 50px;
+    color: black;
+}
+
+.titleBackv1 {
+    position: absolute;
+    z-index: 3;
+    margin-left: 66%;
+    margin-top: 27%;
+    font-weight: 350;
+    font-size: 24px;
+    color: black;
+}
+
+.titleBackv2 {
+    position: absolute;
+    z-index: 3;
+    margin-left: 67%;
+    margin-top: 30%;
+    font-weight: 350;
+    font-size: 24px;
+    color: black;
+}
+
+.styleInfo {
+  border-left:5px solid #fff;
+  color: white;
+  z-index:0;
+  border: inherit;
+  border-color: transparent;
+  background-clip: border-box;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.footage {
+    background: url(../../images/footage.png);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-left: 55%;
+    z-index: 2;
+}
+.footage2 {
+    background: url(../../images/footage2.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-size: 50% 100%;
+    margin-left: 60%;
+    z-index: 3;
+}
