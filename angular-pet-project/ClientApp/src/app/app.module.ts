@@ -8,6 +8,7 @@ import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule } fr
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -51,6 +52,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ScrollingModule,
     NgRatingBarModule,
     NgbProgressbarModule,
+    CommonModule,
   ],
   providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]

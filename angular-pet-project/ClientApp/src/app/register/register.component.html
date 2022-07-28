@@ -39,13 +39,22 @@ display: inline-block;
             <span>
                 <input [(ngModel)]="Email" class="basic-slide bs3" id="email" type="email" placeholder="Your email" /><label for="email">Email</label>
             </span>
+            <button ly-button raised>Hello World</button>
             <span>
-                <div class="example-1">
+                <div *ngIf="imageShow == false" class="example-1">
                     <div class="form-group">
                       <label class="label">
                         <i class="material-icons">image</i>
                         <span class="title">Choose image</span>
-                        <input [(ngModel)]="Image" type="file">
+                        <input #file (change)="imageSelection(file.files)" type="file">
+                      </label>
+                    </div>
+                  </div>
+                  <div *ngIf="imageShow == true" class="example-1">
+                    <div class="form-group">
+                      <label class="label">
+                        <img class="imgInp" [src]="imgUrl">
+                        <input type="file">
                       </label>
                     </div>
                   </div>

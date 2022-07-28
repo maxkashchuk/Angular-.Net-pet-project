@@ -11,6 +11,12 @@ import { User } from '../models/user-model-register';
 })
 export class RegisterComponent {
 
+  imageShow: boolean = false;
+
+  filePath: string;
+
+  imgUrl: any;
+
   constructor(public featureService:FeatureService, private registerService: RegisterService) 
   {
     featureService.hide();
@@ -23,6 +29,25 @@ export class RegisterComponent {
   ngOnDestroy()
   {
     this.featureService.show();
+  }
+
+  imageSelection(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.filePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgUrl = reader.result; 
+    }
+
+    this.imageShow = true;
   }
 
   btnClick()

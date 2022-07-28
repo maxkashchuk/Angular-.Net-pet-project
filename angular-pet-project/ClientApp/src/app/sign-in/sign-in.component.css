@@ -9,10 +9,19 @@
     margin-top: 3%;
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+
+.column mat-card {
+    margin-left: 100%;
+}
+
 .row span {
     position: relative;
     display: inline-block;
-    margin: 30px 10px;
+    margin: 20px 50px;
     color: white;
 }
 
@@ -29,25 +38,20 @@
     outline: 0;
     transition: all 0.3s ease-in-out;
 }
-
 .basic-slide::-webkit-input-placeholder {
     color: #efefef;
     text-indent: 0;
     font-weight: 300;
 }
-
 .bs1 {
     text-indent: 120px;
 }
-
 .bs2 {
     text-indent: 100px;
 }
-
 .bs3 {
     text-indent: 70px;
 }
-
 .basic-slide + label {
     display: inline-block;
     position: absolute;
@@ -60,7 +64,6 @@
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-
 .basic-slide:focus, .basic-slide:active {
     color: black;
     text-indent: 0;
@@ -68,22 +71,18 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
-
 .basic-slide:focus::-webkit-input-placeholder, .basic-slide:active::-webkit-input-placeholder {
     color: #aaa;
 }
-
 .basic-slide:focus + label, .basic-slide:active + label {
     transform: translateX(-100%);
 }
-
 .example-1 input[type=file] {
     outline: 0;
     opacity: 0;
     pointer-events: none;
     user-select: none;
 }
-
 .example-1 .label { 
     width: 265px;
     border: 2px dashed grey;
@@ -94,26 +93,21 @@
     cursor: pointer;
     text-align: center;
 }
-
 .example-1 .label i {
     display: block; 
     font-size: 42px;
     padding-bottom: 16px;
 }
-
 .example-1 .label i,.example-1 .label .title {
     color: grey;
     transition: 200ms color;
 }
-
 .example-1 .label:hover {
     border: 2px solid #000;
 }
-
 .example-1 .label:hover i, .example-1 .label:hover .title {
     color: #000;
 }
-
 .sbmButton {
     position: absolute;
     margin-left: 16%;
@@ -123,7 +117,6 @@
     color: #669DB3FF;
     border-color: #669DB3FF;
 }
-
 .sbmButtonVer2 {
     position: absolute;
     z-index: 3;
@@ -135,7 +128,6 @@
     background-color: white;
     border-radius: 50px;
 }
-
 .titleMain {
     position: absolute;
     z-index: 3;
@@ -145,7 +137,6 @@
     font-size: 50px;
     color: black;
 }
-
 .titleBackv1 {
     position: absolute;
     z-index: 3;
@@ -155,7 +146,6 @@
     font-size: 24px;
     color: black;
 }
-
 .titleBackv2 {
     position: absolute;
     z-index: 3;
@@ -165,7 +155,6 @@
     font-size: 24px;
     color: black;
 }
-
 .styleInfo {
   border-left:5px solid #fff;
   color: white;
@@ -176,7 +165,6 @@
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
-
 .footage {
     background: url(../../images/footage.png);
     position: absolute;

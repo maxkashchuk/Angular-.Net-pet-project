@@ -119,6 +119,11 @@
     color: #fff;
 }
 
+.imgInp {
+    width: 100%; 
+    height: 100%;
+}
+
 .example-1 input[type=file] {
     outline: 0;
     opacity: 0;
@@ -128,6 +133,7 @@
 
 .example-1 .label { 
     width: 265px;
+    height: 200px;
     border: 2px dashed grey;
     border-radius: 5px;
     display: block;
