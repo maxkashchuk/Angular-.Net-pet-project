@@ -39,6 +39,20 @@ display: inline-block;
             <span>
                 <input [(ngModel)]="Email" class="basic-slide bs3" id="email" type="email" placeholder="Your email" /><label for="email">Email</label>
             </span>
+            <!-- <input type="file" (change)="fileChangeEvent($event)" />
+
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+
+<img [src]="croppedImage" /> -->
             <span>
                 <div class="example-1">
                     <div class="form-group">

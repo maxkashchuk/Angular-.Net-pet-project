@@ -20,6 +20,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgRatingBarModule } from 'ng-rating-bar';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ScrollingModule,
     NgRatingBarModule,
     NgbProgressbarModule,
+    ImageCropperModule,
   ],
   providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]
