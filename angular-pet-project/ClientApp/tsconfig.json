@@ -1,5 +1,15 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true,
+    "strictTemplates": true
+ 
+ },
+  "settings": {
+    "angular.enable-strict-mode-prompt": false
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "module": "esnext",
