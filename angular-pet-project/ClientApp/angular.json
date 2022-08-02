@@ -8,13 +8,19 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+
+          "style": "css"
+    
+        }        
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "progress": false,
-            "extractCss": true,
+            
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",

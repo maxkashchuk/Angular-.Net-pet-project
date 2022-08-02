@@ -4,7 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +23,6 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgRatingBarModule } from 'ng-rating-bar';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,6 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ScrollingModule,
     NgRatingBarModule,
     NgbProgressbarModule,
-    ImageCropperModule,
   ],
   providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]
