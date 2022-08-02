@@ -12,6 +12,9 @@
   },
   "private": true,
   "dependencies": {
+    "@nguniversal/common": "^7.1.1",
+    "@nguniversal/express-engine": "^7.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
     "@agm/core": "^3.0.0-beta.0",
     "@angular-devkit/architect": "^0.1401.0",
     "@angular/animations": "^14.1.0",
@@ -26,7 +29,7 @@
     "@angular/platform-server": "14.1.0",
     "@angular/router": "14.1.0",
     "@ng-bootstrap/ng-bootstrap": "^5.3.1",
-    "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    
     "angular-progress-bar": "^1.0.11",
     "bootstrap": "^4.6.0",
     "core-js": "^3.8.3",
