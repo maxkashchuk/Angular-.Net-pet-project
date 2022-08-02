@@ -15,7 +15,7 @@
     "@agm/core": "^3.0.0-beta.0",
     "@angular-devkit/architect": "^0.1401.0",
     "@angular/animations": "14.1.0",
-    "@angular/cdk": "~12.2.13",
+    "@angular/cdk": "~13.3.9",
     "@angular/common": "14.1.0",
     "@angular/compiler": "14.1.0",
     "@angular/core": "14.1.0",
