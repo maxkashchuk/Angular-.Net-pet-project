@@ -21,7 +21,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './app.authentication.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgRatingBarModule } from 'ng-rating-bar';
-import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbProgressbarModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
@@ -54,6 +54,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ScrollingModule,
     NgRatingBarModule,
     NgbProgressbarModule,
+    NgbModule,
   ],
   providers: [FeatureService, AuthService],
   bootstrap: [AppComponent]

@@ -29,13 +29,13 @@ a p {
 
 .regBtn {
   color: white;
-  font-size: 40px;
   transition: all 0.5s ease-in-out;
   margin-top: 4%;
+  transform: scale(2);
 }
 
 .regBtn:hover {
-  transform: scale(0.9);
+  transform: scale(1.2);
 }
 
 .nav-links  {
