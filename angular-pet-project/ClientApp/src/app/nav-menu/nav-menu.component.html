@@ -37,46 +37,62 @@
       <mat-icon class="regBtn">recent_actors</mat-icon>
     </a>
   </button>
-  <button *ngIf='authService.isLogged() == true' (click)="sidebar.style.width == '350px' ? sidebar.style.width = '0px' : sidebar.style.width = '350px'" class="btn-burger">
-    <div class="plates">
-      <div class="plate plate5" onclick="this.classList.toggle('active')">
-        <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-          <path class="line line1" d="M 30,35 H 70 " />
-          <path class="line line2" d="M 50,50 H 30 L 34,32" />
-          <path class="line line3" d="M 50,50 H 70 L 66,68" />
-          <path class="line line4" d="M 30,65 H 70 " />
-        </svg>
-        <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-          <path class="line" d="M 34,32 L 66,68" />
-          <path class="line" d="M 66,32 L 34,68" />
-        </svg>
-      </div>
-    </div>
+  <button
+    *ngIf='authService.isLogged() == true'
+    ly-button
+    appearance="icon"
+    style="width: 50px; height: 50px; position: absolute; top: 0; right: 0; margin-top: 1.2%; margin-right: 10%;"
+  >
+    <ly-avatar
+      [lySize]="35">
+      <img
+        *ngIf='authService.isLogged() == true'
+        alt=" "
+        [src]="avatar"><!-- {{avatar}} -->
+    </ly-avatar>
   </button>
+  <div *ngIf='authService.isLogged() == true' style="margin-right: 3%">
+    <button (click)="sidebar.style.width == '350px' ? sidebar.style.width = '0px' : sidebar.style.width = '350px'" class="btn-burger">
+      <div class="plates">
+        <div class="plate plate5" onclick="this.classList.toggle('active')">
+          <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+            <path class="line line1" d="M 30,35 H 70 " />
+            <path class="line line2" d="M 50,50 H 30 L 34,32" />
+            <path class="line line3" d="M 50,50 H 70 L 66,68" />
+            <path class="line line4" d="M 30,65 H 70 " />
+          </svg>
+          <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+            <path class="line" d="M 34,32 L 66,68" />
+            <path class="line" d="M 66,32 L 34,68" />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
 </nav>
 <div #sidebar class="sidebar" [style.display]="showState[1]">
   <ul>
     <li>
       <a (click)="logOut()" href="" class="linkDefault">
-        <mat-icon style="position: fixed; font-size: 42px; margin-top: 1%;">subdirectory_arrow_left</mat-icon>
+        <mat-icon style="position: fixed; transform: scale(2); margin-top: 1%;">subdirectory_arrow_left</mat-icon>
         <p class="slideText" style="margin-left: 25%; font-size: 30px; font-weight: 450;">Log out</p>
       </a>
     </li>
     <li>
       <a routerLink="user-profile" class="linkDefault">
-        <mat-icon style="position: fixed; font-size: 42px; margin-top: 1%;">assignment_ind</mat-icon>
+        <mat-icon style="position: fixed; transform: scale(2); margin-top: 1%;">assignment_ind</mat-icon>
         <p class="slideText" style="margin-left: 25%; font-size: 30px; font-weight: 450;">Profile</p>
       </a>
     </li>
     <li>
-      <a routerLink="user-profile" class="linkDefault">
-        <mat-icon style="position: fixed; font-size: 42px; margin-top: 2.5%;">stars</mat-icon>
+      <a routerLink="" class="linkDefault">
+        <mat-icon style="position: fixed; transform: scale(2); margin-top: 2.5%;">stars</mat-icon>
         <p class="slideText" style="margin-left: 25%; font-size: 30px; font-weight: 450;">My <br>favourites</p>
       </a>
     </li>
     <li>
-      <a routerLink="user-profile" class="linkDefault">
-        <mat-icon style="position: fixed; font-size: 42px; margin-top: 1%;">list_alt</mat-icon>
+      <a routerLink="" class="linkDefault">
+        <mat-icon style="position: fixed; transform: scale(2); margin-top: 1%;">list_alt</mat-icon>
         <p class="slideText" style="margin-left: 25%; font-size: 30px; font-weight: 450;">My offers</p>
       </a>
     </li>

@@ -21,6 +21,6 @@ namespace angular_pet_project.Models.AuthentificationModels
         [Required]
         [CheckDate]
         public DateTime? BirthDate { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
     }
 }

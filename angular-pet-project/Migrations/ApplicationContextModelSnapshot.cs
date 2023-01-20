@@ -175,8 +175,8 @@ namespace angular_pet_project.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(900)");
+                    b.Property<string>("Image")
+                        .HasColumnType("NVARCHAR(Max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -227,10 +227,6 @@ namespace angular_pet_project.Migrations
                     b.HasIndex("Email")
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
-
-                    b.HasIndex("Image")
-                        .IsUnique()
-                        .HasFilter("[Image] IS NOT NULL");
 
                     b.HasIndex("Nickname")
                         .IsUnique()

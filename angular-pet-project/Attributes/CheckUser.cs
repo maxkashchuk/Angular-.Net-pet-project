@@ -22,7 +22,7 @@ namespace angular_pet_project.Attributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (Convert.ToDateTime(value).Year <= DateTime.Now.Year - 16)
+            if (Convert.ToDateTime(value).Year <= DateTime.Now.Year - 13)
             {
                 return ValidationResult.Success;
             }

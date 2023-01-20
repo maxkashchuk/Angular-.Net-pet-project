@@ -6,6 +6,16 @@
     position: absolute;
 }
 
+.cropResult {
+    border-radius: 50%;
+}
+
+.sliderContainer {
+    text-align: center;
+    max-width: 400px;
+    margin: 14px;
+}
+
 .demo-inline-calendar-card {
     width: 300px;
     background-color: #efefef;
@@ -128,6 +138,7 @@
 
 .example-1 .label { 
     width: 265px;
+    height: 200px;
     border: 2px dashed grey;
     border-radius: 5px;
     display: block;
@@ -135,6 +146,15 @@
     transition: border 300ms ease;
     cursor: pointer;
     text-align: center;
+}
+
+.example-1 img {
+    transition: 300ms;
+    border-radius: 20px;
+}
+
+.example-1:hover img {
+    transform: scale(1.1);
 }
 
 .example-1 .label i {

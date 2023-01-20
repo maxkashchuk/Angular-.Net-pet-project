@@ -52,7 +52,7 @@ namespace angular_pet_project.Controllers
         }
 
         [Route("register")]
-        [HttpPost]
+        [HttpPost, DisableRequestSizeLimit]
         public async Task<ActionResult> RegisterUser(UserRegister user)
         {
             if (!ModelState.IsValid)

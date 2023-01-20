@@ -16,7 +16,7 @@ namespace angular_pet_project.Models
         public string Email { get; set; }
         [CheckDate]
         public DateTime? BirthDate { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         
     }
 }

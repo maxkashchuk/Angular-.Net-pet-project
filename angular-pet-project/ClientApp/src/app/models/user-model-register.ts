@@ -1,8 +1,8 @@
 export interface User
 {
     ActualName: string,
-    NickName: string,
+    Nickname: string,
     Email: string,
     BirthDate: Date,
-    Image: any
+    Image: string
 }

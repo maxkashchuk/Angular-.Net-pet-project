@@ -34,32 +34,26 @@ display: inline-block;
                 <input [(ngModel)]="ActualName" class="basic-slide bs1" id="actual_name" type="text" placeholder="Your actual name" /><label for="actual_name">Actual name</label>
             </span>
             <span>
-                <input [(ngModel)]="NickName" class="basic-slide bs2" id="nickname" type="text" placeholder="Your nickname" /><label for="nickname">Nickname</label>
+                <input [(ngModel)]="Nickname" class="basic-slide bs2" id="nickname" type="text" placeholder="Your nickname" /><label for="nickname">Nickname</label>
             </span>
             <span>
                 <input [(ngModel)]="Email" class="basic-slide bs3" id="email" type="email" placeholder="Your email" /><label for="email">Email</label>
             </span>
-            <!-- <input type="file" (change)="fileChangeEvent($event)" />
-
-<image-cropper
-    [imageChangedEvent]="imageChangedEvent"
-    [maintainAspectRatio]="true"
-    [aspectRatio]="4 / 3"
-    format="png"
-    (imageCropped)="imageCropped($event)"
-    (imageLoaded)="imageLoaded()"
-    (cropperReady)="cropperReady()"
-    (loadImageFailed)="loadImageFailed()"
-></image-cropper>
-
-<img [src]="croppedImage" /> -->
             <span>
-                <div class="example-1">
+                <div class="example-1" *ngIf="this.Image === undefined">
                     <div class="form-group">
                       <label class="label">
                         <i class="material-icons">image</i>
                         <span class="title">Choose image</span>
-                        <input [(ngModel)]="Image" type="file">
+                        <input (change)="cropperActive($event)" type="file">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="example-1" *ngIf="this.Image !== undefined">
+                    <div class="form-group">
+                      <label class="label">
+                        <img src="{{this.Image}}"/>
+                        <input (change)="cropperActive($event)" type="file">
                       </label>
                     </div>
                   </div>

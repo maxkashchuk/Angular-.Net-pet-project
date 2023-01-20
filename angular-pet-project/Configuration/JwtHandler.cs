@@ -71,7 +71,6 @@ public class JwtHandler
         }
         catch
         {
-            // return null if validation fails
             return null;
         }
     }

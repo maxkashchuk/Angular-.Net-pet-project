@@ -1,0 +1,47 @@
+<div style="margin-left: 6%;">
+<div [lyDisplay]="'flex'">
+    <span [lyFlex]="1"></span>
+    <input #_fileInput type="file" (change)="cropper.selectInputEvent($event)" accept="image/*" hidden>
+    <button raised ly-button bg="accent" *ngIf="croppedImage">Upload</button>
+  </div>
+  
+  <div *ngIf="ready">
+    <button (click)="cropper.zoomIn()" class="btnFunc" ly-button appearance="icon"><ly-icon>zoom_in</ly-icon></button>
+    <button (click)="cropper.zoomOut()" class="btnFunc" ly-button appearance="icon"><ly-icon>zoom_out</ly-icon></button>
+    <button (click)="cropper.center()" class="btnFunc" ly-button appearance="icon"><ly-icon>filter_center_focus</ly-icon></button>
+    <button (click)="cropper.rotate(-90)" class="btnFunc" ly-button appearance="icon"><ly-icon>rotate_90_degrees_ccw</ly-icon></button>
+    <button (click)="cropper.fit()" class="btnFunc btnFix" ly-button>Fit</button>
+    <button (click)="cropper.fitToScreen()" class="btnFunc btnFix" ly-button>Fit to screen</button>
+    <button (click)="cropper.setScale(1)" class="btnFunc btnFix" ly-button>1:1</button>
+  </div>
+  
+  <ly-img-cropper
+    [config]="myConfig"
+    [(scale)]="scale"
+    (minScale)="minScale = $event"
+    (ready)="ready = true"
+    (cleaned)="ready = false"
+    (cropped)="onCropped($event)"
+    (loaded)="onLoaded($event)"
+    (error)="onError($event)"
+  >
+    <span>Drag and drop image</span>
+  </ly-img-cropper>
+  
+  <div *ngIf="ready" [className]="classes.sliderContainer">
+    <ly-slider
+      [lyWidth]="350"
+      [color]="'primary'"
+      [thumbVisible]="false"
+      [min]="minScale"
+      [max]="1"
+      [(ngModel)]="scale"
+      (input)="onSliderInput($event)"
+      step="0.000001"></ly-slider>
+  </div>
+
+  <div>
+    <button class="btnFunc" (click)="dialogRef.close()" style="margin-left: 30%" raised ly-button appearance="icon"><ly-icon>close</ly-icon></button>
+    <button class="btnFunc" (click)="crop()" style="margin-left: 10%" raised ly-button appearance="icon"><ly-icon>check_circle</ly-icon></button>
+  </div>
+</div>

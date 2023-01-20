@@ -31,7 +31,7 @@ namespace angular_pet_project.Controllers
             {
                 return BadRequest(ModelState.ErrorCount);
             }
-            User u = new User { ActualName = user.ActualName, Nickname = user.Nickname, Email = user.Email, BirthDate = user.BirthDate, Image = user.Image};
+            User u = new User { ActualName = user.ActualName, Nickname = user.Nickname, Email = user.Email, BirthDate = user.BirthDate}; //, Image = user.Image
             await DBContext.AddAsync(u);
             await DBContext.SaveChangesAsync();
             return Ok();

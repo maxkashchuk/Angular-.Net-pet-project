@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
+import jwt_decode from 'jwt-decode';
 
 @Injectable()
 export class AuthService {
@@ -13,6 +14,17 @@ export class AuthService {
     logOut = () => {
         sessionStorage.clear();
         localStorage.clear();
+    }
+
+    getDecodedAccessToken(token: string): any {
+      try 
+      {
+        return jwt_decode(token);
+      } 
+      catch(Error) 
+      {
+        return null;
+      }
     }
 
     getLocation(): Promise<any>

@@ -4,6 +4,41 @@
     margin: 0;
 }
 
+.list {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.listHide{
+  animation: fadeOutAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation{
+  0% {
+    opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+.currPage {
+  font-size: 72px;
+  color: purple;
+}
+
 .flex {
     width: 50vw;
     height: 96px;
@@ -21,7 +56,7 @@
     display: flex;
   }
 
-  .flex ul li {
+  .pagElem {
     flex: 1;
     list-style: none;
     text-align: center;
@@ -45,7 +80,7 @@
     user-select: none;
   }
 
-  .flex ul li:hover {
+  .pagElem:hover {
     background-color: rgba(255, 255, 255, 0.25);
     transform: scale(0.8);
     border-radius: 50px;

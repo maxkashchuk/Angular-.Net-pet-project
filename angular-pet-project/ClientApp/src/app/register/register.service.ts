@@ -15,8 +15,8 @@ export class RegisterService {
 
     POST_User_Model(model: User)
     {
-        const headers = { 'content-type': 'application/json'}  
-        const body=JSON.stringify(model);
+        const headers = {'content-type': 'application/json'}  
+        const body = JSON.stringify(model);
         this.http.post(this.url_api, body, {'headers':headers, observe: 'response'}).subscribe(response => 
         {
             if(response.status == 200)

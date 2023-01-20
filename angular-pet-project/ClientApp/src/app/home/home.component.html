@@ -1,4 +1,4 @@
-<section style="width: 100%; overflow-y: scroll; height: 730px; width: 99%;" class="row">
+<section *ngIf="!isLoading" style="width: 100%; overflow-y: scroll; height: 730px; width: 99%;" class="row list" [ngClass]="movePage ? 'list' : 'listHide'">
         <ng-container class="col-lg-3 row" *ngFor="let item of dataResponse.data; let i = index">
             <div style="margin-left: 11%; margin-top: 2%;" class="card">
                 <div [ngStyle]="{'background-image': 'url(\'' + this.getImage() + '\')'}" class="card-image card-context"></div>
@@ -29,17 +29,27 @@
                 <button class="btn">More</button>
             </div>
         </ng-container>
+
+        <div *ngIf="countPage" class="flex">
+            <ul>
+                <div class="pagElem" *ngFor="let item of pagMinArr">
+                    <a><li (click)="choosen($event)">{{item}}</li></a>
+                </div>
+            </ul>
+        </div>
         
-        <div class="flex">
+        <div *ngIf="!countPage" class="flex">
             <ul>
                 <a (click)="previous()"><li style="font-weight: bold; font-size: 28px"><</li></a>
-                <li class="linkDefault">1</li>
-                <p>...</p>
-                <li class="linkDefault">4</li>
-                <li class="linkDefault">5</li>
-                <li class="linkDefault">6</li>
-                <p>...</p>
-                <li class="linkDefault">9</li>
+                <a><li (click)="choosen($event)" class="linkDefault">{{pagArr[0]}}</li></a>
+                <p *ngIf="offset >= 27">{{pagArr[1]}}</p>
+                <a *ngIf="offset < 27"><li (click)="choosen($event)" class="linkDefault">{{pagArr[1]}}</li></a>
+                <a><li (click)="choosen($event)" class="linkDefault">{{pagArr[2]}}</li></a>
+                <a><li (click)="choosen($event)" class="linkDefault">{{pagArr[3]}}</li></a>
+                <a><li (click)="choosen($event)" class="linkDefault">{{pagArr[4]}}</li></a>
+                <p *ngIf="!lastPage">{{pagArr[5]}}</p>
+                <a *ngIf="lastPage"><li (click)="choosen($event)" class="linkDefault">{{pagArr[5]}}</li></a>
+                <a><li (click)="choosen($event)" class="linkDefault">{{pagArr[6]}}</li></a>
                 <a (click)="next()"><li style="font-weight: bold; font-size: 28px">></li></a>
             </ul>
         </div>

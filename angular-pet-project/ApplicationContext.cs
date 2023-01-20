@@ -49,9 +49,9 @@ namespace angular_pet_project
             .HasIndex(el => el.BirthDate)
             .IsUnique();
 
-            builder.Entity<User>()
-            .HasIndex(el => el.Image)
-            .IsUnique();
+            //builder.Entity<User>()
+            //.HasIndex(el => el.Image)
+            //.IsUnique();
 
             builder.Entity<User>()
             .HasIndex(el => el.BirthDate)
